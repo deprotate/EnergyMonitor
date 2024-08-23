@@ -7,21 +7,30 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import com.reporter.WebEnergyReporter.DTO.EnergyRequestDTO;
 import com.reporter.WebEnergyReporter.repositories.EnergyRepository;
 
 @Service
 public class EnergyService {
+
+    private static final String CORRECT_PASSWORD = "pass"; // Пароль
+
     @Autowired
     private EnergyRepository repository;
 
-    public void saveEnergy(int energyType, int energyValue) {
-        if (energyType < 1 || energyType > 2) {
-            throw new IllegalArgumentException("Type must be between 1 and 2");
+    public boolean addEnergy(EnergyRequestDTO requestDTO) {
+        if (!CORRECT_PASSWORD.equals(requestDTO.getPassword())) {
+            return false; // Пароль не совпадает, доделать
         }
-        Energy energy = new Energy(energyType, energyValue);
-        repository.save(energy);
+
+        Energy energy = new Energy();
+        energy.setEnergyType(Integer.parseInt(requestDTO.getType()));
+        energy.setEnergyValue(Integer.parseInt(requestDTO.getValue()));
+
+        repository.save(energy); // Сохранение в БД
+        return true; // Успешное добавление
     }
+
 
     public Map<Integer, Integer> getEnergy() {
         List<Integer[]> results = repository.getEnergy();
@@ -45,3 +54,10 @@ public class EnergyService {
     }
 }
 
+//public void saveEnergy(int energyType, int energyValue) {
+//    if (energyType < 1 || energyType > 2) {
+//        throw new IllegalArgumentException("Type must be between 1 and 2");
+//    }
+//    Energy energy = new Energy(energyType, energyValue);
+//    repository.save(energy);
+//}

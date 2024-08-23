@@ -21,6 +21,10 @@ public class Energy {
 
     }
 
+    public Energy() {
+    }
+
+
     public Long getId() {
         return id;
     }

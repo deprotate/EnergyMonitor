@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f855e6bc.css",
+    "main.js": "/static/js/main.a6333352.js",
+    "static/js/453.95166317.chunk.js": "/static/js/453.95166317.chunk.js",
+    "static/media/SolarPanel1.jpg": "/static/media/SolarPanel1.3339eb91def132bb3323.jpg",
+    "index.html": "/index.html",
+    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
+    "main.a6333352.js.map": "/static/js/main.a6333352.js.map",
+    "453.95166317.chunk.js.map": "/static/js/453.95166317.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.a6333352.js"
+  ]
+}
